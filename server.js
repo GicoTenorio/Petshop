@@ -46,6 +46,28 @@ return res.status(500).json({ message: 'Erro interno no servidor.' });
 }
 });
 
+app.post('api/vets',async(req,res)=>{
+    const{nome, cfmv, especialidade}=req.body;
+    
+    if (!nome || !cfmv || !especialidade){
+        return res.status(400).json({message:'Todos os campos são obrigatórios.'})
+    }
+
+    try{
+        const query = `
+        INSERT INTO veterinarios (nome, cfmv, especialidade)
+        values (?,?,?)
+        `;
+
+        await db.query(query,[nome, cfmv, especialidade]);
+
+        return res.status(201).json({message: 'Veterinário cadastrado com sucesso'})
+    } catch (error){
+        console.error('Erro ao salvar veterinário',error);
+        return res.status(508).json({message:'Erro ao salvar no banco de dados.'})
+    }
+});
+
 app.listen(3000, () => {
 console.log('Servidor rodando em http://localhost:3000');
  });
