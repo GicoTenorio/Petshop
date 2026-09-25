@@ -9,13 +9,13 @@
 <body>
     <h1 id="boasVindas">Dashboard - Bem-vindo!</h1>
     <button id="btnLogout">Sair</button>
-    <button id="btnCadastrar"></button>
+    <button id="btnCadastrar">Cadastrar</button>
 
     <script>
         const usuarioSalvo = localStorage.getItem('usuarioLogado');
 
         if (!usuarioSalvo || usuarioSalvo === 'undefined') {
-            window.location.href = 'index.html';
+            window.location.href = 'login.html';
         } else {
             const usuarioDados = JSON.parse(usuarioSalvo);
             document.getElementById('boasVindas').innerText =
