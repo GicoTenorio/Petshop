@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de gerenciamento de Pet Shop - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css"> 
 </head>
 
 <body>
-    <h1 id="boasVindas">Dashboard - Bem-vindo!</h1>
-    <button id="btnLogout">Sair</button>
-    <button id="btnCadastrar">Cadastrar</button>
+    <div class="dashboard-container">
+        <h1 id="boasVindas">Dashboard - Bem-vindo!</h1>
+        
+
+        <div class="button-group">
+            <button id="btnCadastrar">Cadastrar</button>
+            <button id="btnLogout">Sair</button>
+        </div>
+    </div>
 
     <script>
         const usuarioSalvo = localStorage.getItem('usuarioLogado');
@@ -27,9 +34,9 @@
             window.location.href = 'login.html';
         });
         document.getElementById('btnCadastrar').addEventListener('click', () => {
-            localStorage.removeItem('usuarioLogado');
             window.location.href = 'cadastro.html';
         });
     </script>
 </body>
 </html>
+
